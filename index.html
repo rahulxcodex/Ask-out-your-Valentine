@@ -43,6 +43,10 @@
           No
         </button>
       </div>
+      <!-- The "Go to Love Letter" button will initially be hidden -->
+      <button id="letterButton" class="mt-4 inline-flex items-center justify-center rounded-md text-[20px] font-medium hover:bg-blue-500 min-h-12 min-w-[75px] px-4 py-2 bg-blue-500 text-white transition hidden">
+        Go to Love Letter
+      </button>
     </div>
   </div>
 
@@ -50,6 +54,7 @@
     import confetti from 'https://cdn.skypack.dev/canvas-confetti';
     const yesButton = document.getElementById('yesButton');
     const noButton = document.getElementById('noButton');
+    const letterButton = document.getElementById('letterButton'); // Select the new button
     const imageDisplay = document.getElementById('imageDisplay');
     const valentineQuestion = document.getElementById('valentineQuestion');
     const responseButtons = document.getElementById('responseButtons');
@@ -89,6 +94,14 @@
       valentineQuestion.textContent = "Yayyy!! :3"; // Change the question text
       responseButtons.style.display = 'none'; // Hide both buttons
       confetti(); // Trigger confetti animation
+
+      // Show the "Go to Love Letter" button
+      letterButton.classList.remove('hidden');
+    });
+
+    // Event listener for the "Go to Love Letter" button
+    letterButton.addEventListener('click', () => {
+      window.location.href = "https://react-love-letter-tau.vercel.app/"; // Redirect to the love letter URL
     });
   </script>  
 </body>
